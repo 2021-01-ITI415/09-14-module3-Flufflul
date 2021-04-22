@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerAudio : MonoBehaviour
 {
-    public AudioClip splashSound;
-    public AudioSource audioSource;
+    public AudioClip            splashSound;
+    public AudioSource          audioSource;
+    public AudioMixerSnapshot   idleSnapshot, 
+                                auxInSnapshot;
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Water")) {
             audioSource.PlayOneShot(splashSound);
+        }
+
+        if (other.CompareTag("EnemyZone")) {
+            auxInSnapshot.TransitionTo(0.5f);
         }
     }
 
@@ -17,5 +24,10 @@ public class PlayerAudio : MonoBehaviour
        if (other.CompareTag("Water")) {
             audioSource.PlayOneShot(splashSound);
         }
+
+        if (other.CompareTag("EnemyZone")) {
+            idleSnapshot.TransitionTo(0.5f);
+        }
+
     }
 }
