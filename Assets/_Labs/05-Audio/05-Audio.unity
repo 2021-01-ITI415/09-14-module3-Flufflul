@@ -753,6 +753,9 @@ MonoBehaviour:
   audioSource: {fileID: 495634418}
   idleSnapshot: {fileID: 24500006, guid: 8f18d7833afcbf44d982b2e0892d5dcc, type: 2}
   auxInSnapshot: {fileID: 6394864929744526889, guid: 8f18d7833afcbf44d982b2e0892d5dcc, type: 2}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &518399437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,12 +1950,12 @@ GameObject:
   - component: {fileID: 1612306848}
   - component: {fileID: 1612306847}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: AuxCube
   m_TagString: EnemyZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1612306847
 Rigidbody:
   m_ObjectHideFlags: 0
