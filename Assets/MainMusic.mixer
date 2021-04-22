@@ -45,6 +45,7 @@ AudioMixerController:
   m_Snapshots:
   - {fileID: 24500006}
   - {fileID: 6394864929744526889}
+  - {fileID: 7750514468384212014}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -55,9 +56,10 @@ AudioMixerController:
     - 8d14935dc89f9ed44b8e750031f090c4
     - a7400596428fe044f9c5b718bb523f6d
     - c9b613c9344044048b57f69957c182b6
+    - f3c175495a8dfa94c83786160035e602
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 6394864929744526889}
+  m_TargetSnapshot: {fileID: 7750514468384212014}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -70,6 +72,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -7590256763575629819}
   - {fileID: 381045777709871488}
+  - {fileID: 1209137442446714967}
   m_Volume: ed5691e7ebc68d147b58c356f43230e9
   m_Pitch: bc750c4ac1855d546905101e86d6d59a
   m_Send: 00000000000000000000000000000000
@@ -103,6 +106,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: fee99455aefcdb54581eec0e914e707f
   m_FloatValues:
+    814e9cd68ee59604f9d5cff99a84dd97: -80
     dee71b37b5b729940883483c32ea506c: -80
   m_TransitionOverrides: {}
 --- !u!243 &381045777709871488
@@ -120,6 +124,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -8221692181182501766}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &1209137442446714967
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EventMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: f3c175495a8dfa94c83786160035e602
+  m_Children: []
+  m_Volume: 814e9cd68ee59604f9d5cff99a84dd97
+  m_Pitch: af523317b95d3b84bbc354da7f251aa3
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 6511857612289863693}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -147,5 +170,33 @@ AudioMixerSnapshotController:
   m_Name: AuxIn
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 11b2fe4e04180a9419d43a17e649b0b5
-  m_FloatValues: {}
+  m_FloatValues:
+    814e9cd68ee59604f9d5cff99a84dd97: -80
+  m_TransitionOverrides: {}
+--- !u!244 &6511857612289863693
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: fbc47db10b8eb08468d5e87f7894f600
+  m_EffectName: Attenuation
+  m_MixLevel: 4534f85c07c7f5b4694403c8083edaa3
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &7750514468384212014
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EventMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: bc61e6aea9efbe9468437fdbf05588db
+  m_FloatValues:
+    dee71b37b5b729940883483c32ea506c: -80
+    5875950e61b072a4c8c867bbe79577ec: -80
   m_TransitionOverrides: {}
