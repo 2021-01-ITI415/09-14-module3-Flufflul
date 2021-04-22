@@ -18,7 +18,11 @@ public class AudioManager : MonoBehaviour
     public AudioMixerSnapshot       eventSnap,
                                     idleSnap;
 
+    public bool eventRunning;
+    public bool auxIn;
     public IEnumerator PlayEventMusic() {
+        eventRunning = true;
+
         eventSnap.TransitionTo(0.25f);
         yield return new WaitForSeconds(0.3f);
 
@@ -26,6 +30,7 @@ public class AudioManager : MonoBehaviour
         while (eventMusic.isPlaying) {
             yield return null;
         }
+        eventRunning = false;
         idleSnap.TransitionTo(0.5f); 
         yield break;
     }
