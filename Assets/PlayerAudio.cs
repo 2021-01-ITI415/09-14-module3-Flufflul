@@ -28,13 +28,29 @@ public class PlayerAudio : MonoBehaviour
             if (enemyNear) {
                 if (!AudioManager.manager.auxIn) {
                     auxInSnapshot.TransitionTo(0.5f);
+                    AudioManager.manager.currentAudioMixerSnapshot = auxInSnapshot;
                     AudioManager.manager.auxIn = true;
+                }
+                else {
+                    if (AudioManager.manager.currentAudioMixerSnapshot == AudioManager.manager.eventSnap) {
+                        auxInSnapshot.TransitionTo(0.5f);
+                        AudioManager.manager.currentAudioMixerSnapshot = auxInSnapshot;
+                        AudioManager.manager.auxIn = true;
+                    }
                 }
             }
             else {
                 if (AudioManager.manager.auxIn) {
                     idleSnapshot.TransitionTo(0.5f);
+                    AudioManager.manager.currentAudioMixerSnapshot = idleSnapshot;
                     AudioManager.manager.auxIn = false;
+                }
+                else {
+                    if (AudioManager.manager.currentAudioMixerSnapshot == AudioManager.manager.eventSnap) {
+                        idleSnapshot.TransitionTo(0.5f);
+                        AudioManager.manager.currentAudioMixerSnapshot = idleSnapshot;
+                        AudioManager.manager.auxIn = false;
+                    }
                 }
             }
         }
