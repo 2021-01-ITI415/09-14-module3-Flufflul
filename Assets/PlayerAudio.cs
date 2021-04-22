@@ -8,7 +8,9 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip            splashSound;
     public AudioSource          audioSource;
     public AudioMixerSnapshot   idleSnapshot, 
-                                auxInSnapshot;
+                                auxInSnapshot,
+                                ambIdleSnapshot,
+                                ambInSnapshot;
     public LayerMask            enemyMask;
 
     bool enemyNear;
@@ -36,6 +38,10 @@ public class PlayerAudio : MonoBehaviour
         if (other.CompareTag("EnemyZone")) {
             auxInSnapshot.TransitionTo(0.5f);
         }
+
+        if (other.CompareTag("Ambience")) {
+            ambInSnapshot.TransitionTo(0.5f);
+        }
     }
 
     private void OnTriggerExit(Collider other) {
@@ -47,5 +53,8 @@ public class PlayerAudio : MonoBehaviour
             idleSnapshot.TransitionTo(0.5f);
         }
 
+        if (other.CompareTag("Ambience")) {
+            ambIdleSnapshot.TransitionTo(0.5f);
+        }
     }
 }
