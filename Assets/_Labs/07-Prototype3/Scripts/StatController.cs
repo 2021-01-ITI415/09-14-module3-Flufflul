@@ -9,7 +9,8 @@ public class StatController : MonoBehaviour
     public static int               notes,
                                     totalNotes;
     
-    public Text                     text_noteCount;
+    public Text                     text_noteCount,
+                                    text_objective;
 
     private void Start() {
         if (S == null) S = this;
@@ -19,7 +20,13 @@ public class StatController : MonoBehaviour
         GameObject[] collectibles = GameObject.FindGameObjectsWithTag("NoteCollectible");
         totalNotes = collectibles.Length;
 
+        string objective = "- Find all " + totalNotes + " notes -";
+        text_objective.text = objective;
+
         updateStats();
+
+        ObjectiveFader.S.Fade();
+        
     }
 
     public void updateStats() {
