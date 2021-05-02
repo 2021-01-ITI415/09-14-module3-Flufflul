@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectiveFader : MonoBehaviour
+public class GameEndFader : MonoBehaviour
 {
+    public static GameEndFader S;
     private bool mFaded = true;
     public float duration = 0.4f;
     
     private void Start() {
-        IEnumerator FadeInOut() {
-            yield return new WaitForSeconds(1);
+        if (S == null) S = this;
+    }
+
+    public void GameEndFade() {
+        IEnumerator FadeOut() {
+            yield return new WaitForSeconds(2);
             Fade();
-            yield return new WaitForSeconds(3);
-            Fade();
-        } StartCoroutine(FadeInOut());
+        } StartCoroutine(FadeOut());
     }
 
     public void Fade() {

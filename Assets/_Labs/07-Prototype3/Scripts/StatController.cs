@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class StatController : MonoBehaviour
 {
@@ -10,7 +12,8 @@ public class StatController : MonoBehaviour
                                     totalNotes;
     
     public Text                     text_noteCount,
-                                    text_objective;
+                                    text_objective,
+                                    text_victory;
 
     private void Start() {
         if (S == null) S = this;
@@ -24,14 +27,30 @@ public class StatController : MonoBehaviour
         text_objective.text = objective;
 
         updateStats();
-
-        ObjectiveFader.S.Fade();
-        
     }
 
     public void updateStats() {
         string noteCount = notes + "/" + totalNotes;
         text_noteCount.text = noteCount;
+
+        checkEndCondition();
+    }
+
+    private void checkEndCondition() {
+        if (StatController.notes == StatController.totalNotes) {
+            IEnumerator finish() {
+                GameEndFader.S.GameEndFade();
+                text_victory.GetComponent<CanvasGroup>().alpha = 1;
+
+                GameObject go = GameObject.Find("FPSController");
+                FirstPersonController FPSController = go.GetComponent<FirstPersonController>();
+                FPSController.UnfixMouseLock();
+                Destroy(go);
+
+                yield return new WaitForSeconds(5);
+                SceneManager.LoadScene("MainMenu");
+            } StartCoroutine(finish());
+        }
     }
 
     public static void debugCollect() {
