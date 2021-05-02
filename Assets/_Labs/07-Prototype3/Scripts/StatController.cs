@@ -14,6 +14,12 @@ public class StatController : MonoBehaviour
     public Text                     text_noteCount,
                                     text_objective,
                                     text_victory;
+    public Camera                   endCamera;
+
+
+    private void Awake() {
+        endCamera.enabled = false;
+    }
 
     private void Start() {
         if (S == null) S = this;
@@ -45,6 +51,7 @@ public class StatController : MonoBehaviour
                 GameObject go = GameObject.Find("FPSController");
                 FirstPersonController FPSController = go.GetComponent<FirstPersonController>();
                 FPSController.UnfixMouseLock();
+                endCamera.enabled = true;
                 Destroy(go);
 
                 yield return new WaitForSeconds(5);

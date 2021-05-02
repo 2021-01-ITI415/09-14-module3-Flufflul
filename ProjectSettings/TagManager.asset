@@ -9,6 +9,7 @@ TagManager:
   - EnemyZone
   - Ambience
   - NoteCollectible
+  - SinglePlayAudio
   layers:
   - Default
   - TransparentFX
